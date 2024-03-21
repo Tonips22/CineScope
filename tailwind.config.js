@@ -8,11 +8,11 @@ export default {
   theme: {
     extend: {
       colors:{
-        'dark': '#242424',
-        'white': '#F8F8F8',
-        'gray': '#D0D0D0',
-        'primary': '#1C7BC9',
-        'secondary' : '#B1F11A'
+        'dark': 'var(--dark)',
+        'white': 'var(--white)',
+        'gray': 'var(--gray)',
+        'primary': 'var(--primary)',
+        'secondary' : 'var(--secondary)'
       }
     },
   },
