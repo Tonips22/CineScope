@@ -1,0 +1,11 @@
+.search:hover{
+    -webkit-box-shadow: 0 0 27px 7.5px var(--primary);
+    -moz-box-shadow: 0 0 27px 7.5px var(--primary);
+    box-shadow: 0 0 27px 7.5px var(--primary);
+}
+
+.search:focus-within {
+    -webkit-box-shadow: 0 0 27px 7.5px var(--primary);
+    -moz-box-shadow: 0 0 27px 7.5px var(--primary);
+    box-shadow: 0 0 27px 7.5px var(--primary);
+}
