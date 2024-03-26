@@ -3,7 +3,7 @@ import { Search } from '../components/Search.jsx'
 export function Hero (){
 
     return(
-        <section className="relative h-screen flex flex-col items-center justify-center bg-gradient-to-b from-transparent from-50% to-[#242424]">
+        <section className="hero relative h-screen flex flex-col items-center justify-center bg-gradient-to-b from-transparent from-50% to-[#242424]">
             <video src="./Dune.mp4" loop muted autoPlay className=' absolute top-0 left-0 w-full h-full -z-10 object-cover object-center '></video>
             <Search></Search>
         </section>
