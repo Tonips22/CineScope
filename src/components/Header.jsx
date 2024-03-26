@@ -24,7 +24,7 @@ export function Header(){
 
     return (
         <header className="fixed top-0 left-0 w-full z-50 flex flex-row items-center justify-between px-8 py-4  animate-fade-in-up">
-            <a href="\"><h1 className="text-3xl"><span className="font-bold text-primary">Cine</span>Scope</h1></a>
+            <a href="\"><h1 className="text-3xl text-[#F8F8F8]"><span className="font-bold text-primary">Cine</span>Scope</h1></a>
 
             <nav className=' flex flex-row items-center justify-center gap-4'>
                 <label class="switch">
@@ -32,7 +32,7 @@ export function Header(){
                     <span class="slider"></span>
                 </label>
                 
-                <a href="https://github.com/Tonips22" target="blank" className=' grid content-center text-3xl text-white hover:text-primary hover:scale-110 transition-all'><i class="fa-brands fa-github "></i></a>
+                <a href="https://github.com/Tonips22" target="blank" className=' grid content-center text-3xl text-[#F8F8F8] hover:text-primary hover:scale-110 transition-all'><i class="fa-brands fa-github "></i></a>
             </nav>
         </header>
     )
