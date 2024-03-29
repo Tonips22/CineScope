@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import './Search.css';
-// import { popular } from '../API/auth.jsx'
+import { FilmCard } from './FilmCard.jsx';
 
 export function Search ({animation = true}){
     const input = document.querySelector(".input")
@@ -13,16 +14,20 @@ export function Search ({animation = true}){
     }
 
     const addResults = () => {
-        const hero = document.querySelector(".hero");
-        results.forEach(result => {
-            const text = `<img src="https://image.tmdb.org/t/p/w500${result.poster_path}">`
-            hero.insertAdjacentHTML("afterend", text);
-        });
+        getMovie()
+        const content = document.querySelector(".res-content");
+
+        const resultsComponents = results.map(result => {
+            return <FilmCard
+                description={result.overview}
+                rating={result.vote_average}
+                picture={result.poster_path}
+            >{result.title}
+            </FilmCard>
+        })
+
+        ReactDOM.render(resultsComponents, content);
     }
-
-    console.log(results);
-
-
     const getMovie = () =>{
         const options = {
             method: 'GET',
@@ -32,14 +37,14 @@ export function Search ({animation = true}){
             }
           };
           
-          fetch(`https://api.themoviedb.org/3/search/movie?query=${findName}&include_adult=false&language=en-US&page=1`, options)
+          fetch(`https://api.themoviedb.org/3/search/movie?query=${findName}&include_adult=false&language=es-ES&page=1`, options)
             .then(response => response.json())
             .then(json => setResults(json.results));
     }
 
     useEffect(()=>{
         getMovie()
-    }, [findName])
+    }, [])
 
 
     return(
