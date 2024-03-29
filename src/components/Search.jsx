@@ -12,12 +12,17 @@ export function Search ({animation = true}){
     const handleChange = (event) =>{
         let value = event.target.value;
         value = value.replace(/ /g, "+");
-        console.log(value);
         setFindName(event.target.value)
+    }
+
+    const scrollToResults = () => {
+        const content = document.querySelector(".res-content");
+        content.scrollIntoView();
     }
 
     const addResults = () => {
         getMovie();
+        scrollToResults();
     }
 
     useEffect(() => {
