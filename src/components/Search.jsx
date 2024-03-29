@@ -27,7 +27,7 @@ export function Search ({animation = true}){
             >{result.title}
             </FilmCard>
         });
-        
+
         ReactDOM.render(resultsComponents, content);
     }, [results]);
 
@@ -49,7 +49,7 @@ export function Search ({animation = true}){
     return(
         <div className={`${animation ? "search animate-fade-in-up" : ""} flex flex-row items-center justify-between bg-dark rounded-3xl w-1/2 px-8 py-4 gap-2 transition-shadow`}>
             <input onChange={handleChange} type="text" placeholder="Introduzca una película" className="input text-white outline-none bg-transparent w-full"/>
-            <i onClick={addResults} className="fa-solid fa-magnifying-glass text-primary cursor-pointer"></i>
+            <i onClick={addResults} className="fa-solid fa-magnifying-glass text-primary cursor-pointer hover:bg-primary hover:text-dark p-2 rounded-full transition-colors"></i>
         </div>
     )
 }
