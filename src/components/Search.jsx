@@ -10,6 +10,9 @@ export function Search ({animation = true}){
     const [results, setResults] = useState([]);
 
     const handleChange = (event) =>{
+        let value = event.target.value;
+        value = value.replace(/ /g, "+");
+        console.log(value);
         setFindName(event.target.value)
     }
 
