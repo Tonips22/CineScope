@@ -8,7 +8,7 @@ export function Footer(){
             <div className="flex flex-row items-center justify-center gap-2">
                 <p className="text-xs">Powered by</p>
                 <a href="https://www.themoviedb.org/?language=es" target="_blank">
-                    <img className="max-w-8" src="./tmdb-logo.png" alt="The Movie Data Base logo" />
+                    <img className="w-16" src="./tmdblogo.svg" alt="The Movie Data Base logo" />
                 </a>
 
             </div>
