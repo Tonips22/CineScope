@@ -50,7 +50,7 @@ export function Search ({animation = true}){
           
           fetch(`https://api.themoviedb.org/3/search/movie?query=${findName}&include_adult=false&language=es-ES&page=1`, options)
             .then(response => response.json())
-            .then(json => setResults(json.results));
+            .then(data => setResults(data.results));
     }
 
 
