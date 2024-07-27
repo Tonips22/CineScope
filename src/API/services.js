@@ -1,10 +1,10 @@
-// const TMDB_TOKEN = process.env.REACT_APP_TMDB_READ_TOKEN;
+const TMDB_TOKEN = import.meta.env.VITE_TMDB_READ_TOKEN
 
 const options = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMWY1ZmYwMjA0OGFkZjJkZTZmZTAwNzFlZGVhMGI4NSIsIm5iZiI6MTcyMTk4MjI1OS4xNjYzMTIsInN1YiI6IjY2MDJhNzNlMGMxMjU1MDE2NTBkZTZhNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.32cVp63vs_sNdd5nQjbFp0F_jch3pNHDC3yTO-_7bNk'
+        Authorization: `Bearer ${TMDB_TOKEN}`
     }
 };
 
