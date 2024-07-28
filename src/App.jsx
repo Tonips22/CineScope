@@ -34,12 +34,13 @@ function App() {
 
     fetchLatestMovies();
   }, [])
-
-  searchBarInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') searchMovie()
+  
+  
+  const handleKeyDown = (e) => {
+    if ( e.key === 'Enter') {
+      searchMovie();
+    }
   }
-  )
-
   
 
   return (
@@ -50,7 +51,7 @@ function App() {
             <video src="./Dune.mp4" loop muted autoPlay className=' absolute top-0 left-0 w-full h-full -z-10 object-cover object-center '></video>
             
             <div className="search animate-fade-in-up flex flex-row items-center justify-between bg-dark rounded-3xl w-1/2 px-8 py-4 gap-2 transition-shadow">
-              <input type="text" placeholder="Introduzca una película..." className="input text-white outline-none bg-transparent w-full"/>
+              <input onKeyDown={handleKeyDown} type="text" placeholder="Introduzca una película..." className="input text-white outline-none bg-transparent w-full"/>
               <i onClick={searchMovie} className="fa-solid fa-magnifying-glass text-primary cursor-pointer hover:bg-primary hover:text-dark p-2 rounded-full transition-colors"></i>
           </div>
 
