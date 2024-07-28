@@ -6,9 +6,9 @@ export function Footer(){
         <footer className=" flex flex-row items-center justify-between p-4 bg-primary text-neutral-50">
 
             <div className="flex flex-row items-center justify-center gap-2">
-                <p className="text-xs">Powered by</p>
+                <p>Powered by</p>
                 <a href="https://www.themoviedb.org/?language=es" target="_blank">
-                    <img className="w-16" src="./tmdblogo.svg" alt="The Movie Data Base logo" />
+                    <img className="w-20" src="./tmdblogo.svg" alt="The Movie Data Base logo" />
                 </a>
 
             </div>
