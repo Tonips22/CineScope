@@ -7,11 +7,13 @@ import './App.css'
 import { getMovies, getLatestMoviesReleases } from './API/services.js'
 
 function App() {
+  const searchBarInput = document.querySelector('.input')
+  
   const [title, setTitle] = useState('')
   const [movies, setMovies] = useState([])
 
   const searchMovie = async () => {
-    const newTitle = document.querySelector('.input').value.replace(/ /g, '+')
+    const newTitle = searchBarInput.value.replace(/ /g, '+')
     const contentSection = document.querySelector('.content')
     if (newTitle === '') return
 
@@ -19,7 +21,7 @@ function App() {
     const newMovies = await getMovies({ title: newTitle})
     setMovies(newMovies)
 
-    document.querySelector('.input').value = ''
+    searchBarInput.value = ''
 
     contentSection.scrollIntoView({ behavior: 'smooth' })
   }
@@ -32,6 +34,13 @@ function App() {
 
     fetchLatestMovies();
   }, [])
+
+  searchBarInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') searchMovie()
+  }
+  )
+
+  
 
   return (
     <>
