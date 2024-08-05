@@ -1,3 +1,4 @@
+import './MovieModal.css';
 
 export function MovieModal({children, description, rating, ratingColor, picture, date, onClose}){
     function formatDateToText(dateString) {
@@ -31,7 +32,7 @@ export function MovieModal({children, description, rating, ratingColor, picture,
 
 
     return (
-        <div className='fixed top-0 left-0 w-full h-full backdrop-blur-md bg-neutral-50/80 dark:bg-black/80 grid grid-cols-3 animate-fade-in animate-duration-200 z-10 cursor-default'>
+        <div className='moviemodal fixed top-0 left-0 w-full h-full backdrop-blur-md bg-neutral-50/80 dark:bg-black/80 grid grid-cols-3 z-10 cursor-default'>
             <img className='col-span-1 w-full max-h-full object-cover' src={`https://image.tmdb.org/t/p/w500${picture}`} alt={children}/>
 
             <div className="col-span-2 p-10 flex flex-col justify-between">
