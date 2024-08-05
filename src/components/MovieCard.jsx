@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { MovieModal } from "./MovieModal";
 
-export function MovieCard ({children, description, rating, picture}){
+export function MovieCard ({children, description, rating, picture, date}){
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const ratingColor = () =>{
@@ -42,6 +42,7 @@ export function MovieCard ({children, description, rating, picture}){
                 picture={picture}
                 rating={rating}
                 description={description}
+                date={date}
                 ratingColor={ratingColor()}
                 onClose={closeModal}
                 >

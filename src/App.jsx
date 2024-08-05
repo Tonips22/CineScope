@@ -67,6 +67,7 @@ function App() {
                 picture={movie.poster_path}
                 rating={movie.vote_average}
                 description={movie.overview}
+                date={movie.release_date}
                 >
                 {movie.title}
               </MovieCard>
