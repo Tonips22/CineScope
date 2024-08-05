@@ -4,6 +4,8 @@ import { MovieModal } from "./MovieModal";
 
 export function MovieCard ({children, description, rating, picture, date}){
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const descriptionValidated = description ? description : "[No description available...]";
+
 
     const ratingColor = () =>{
         if(rating > 7){
@@ -41,7 +43,7 @@ export function MovieCard ({children, description, rating, picture, date}){
                 open={isModalOpen}
                 picture={picture}
                 rating={rating}
-                description={description}
+                description={descriptionValidated}
                 date={date}
                 ratingColor={ratingColor()}
                 onClose={closeModal}
