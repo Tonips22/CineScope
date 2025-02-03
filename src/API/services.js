@@ -8,9 +8,9 @@ const options = {
     }
 };
 
-export async function getMovies({ title }) {
+export async function getMovies({ title, page = 1}) {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}&include_adult=true&language=es-Es&page=1`, options);
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}&include_adult=true&language=es-Es&page=${page}`, options);
         const data = await response.json();
         return data.results;
     } catch (err) {
@@ -19,9 +19,9 @@ export async function getMovies({ title }) {
     }
 }
 
-export async function getLatestMoviesReleases() {
+export async function getLatestMoviesReleases(page = 1) {
     try {
-        const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=1', options);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=${page}`, options);
         const data = await response.json();
         return data.results;
     } catch (err) {
