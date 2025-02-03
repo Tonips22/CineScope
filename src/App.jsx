@@ -11,6 +11,8 @@ function App() {
   
   const [title, setTitle] = useState('')
   const [movies, setMovies] = useState([])
+  const [page, setPage] = useState(1)
+  const [lastMovies, setLastMovies] = useState(true) // Esto es un flag para saber si están cargadas las últimas películas
 
   const searchMovie = async () => {
     const newTitle = searchBarInput.value.replace(/ /g, '+')
@@ -18,7 +20,9 @@ function App() {
     if (newTitle === '') return
 
     setTitle(newTitle)
-    const newMovies = await getMovies({ title: newTitle})
+    setPage(1)
+    setLastMovies(false)
+    const newMovies = await getMovies({ title: newTitle, page: 1 })
     setMovies(newMovies)
 
     searchBarInput.value = ''
@@ -26,9 +30,21 @@ function App() {
     contentSection.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const addPagination = async () => {
+    if(lastMovies) {
+      const newMovies = await getLatestMoviesReleases(page + 1);
+      setMovies([...movies, ...newMovies]);
+      setPage(page + 1);
+    }else{
+      const newMovies = await getMovies({ title, page: page + 1 })
+      setMovies([...movies, ...newMovies])
+      setPage(page + 1)
+    }
+  }
+
   useEffect(() =>{
     async function fetchLatestMovies() {
-      const newMovies = await getLatestMoviesReleases();
+      const newMovies = await getLatestMoviesReleases(page);
       setMovies(newMovies);
     }
 
@@ -47,7 +63,7 @@ function App() {
     <>
       <Header/>
 
-      <section className="hero relative h-screen flex flex-col items-center justify-center bg-gradient-to-b from-transparent from-50% to-[#242424]">
+      <section id="hero" className="hero relative h-screen flex flex-col items-center justify-center bg-gradient-to-b from-transparent from-50% to-[#242424]">
             <video src="./Dune.mp4" loop muted autoPlay playsInline className=' absolute top-0 left-0 w-full h-full -z-10 object-cover object-center '></video>
             
             <div className="search animate-fade-in-up flex flex-row items-center justify-between bg-dark rounded-3xl w-1/2 px-8 py-4 gap-2 transition-shadow">
@@ -57,7 +73,7 @@ function App() {
 
       </section>
 
-      <section className="content p-4 res-content grid grid-cols-2 place-content-center min-h-full mx-0 my-auto gap-4 lg:grid-cols-3 ">
+      <section className="content p-4 res-content grid grid-cols-2 place-content-center mx-0 my-auto gap-4 lg:grid-cols-3 ">
 
         {
           movies.map((movie) => {
@@ -75,6 +91,10 @@ function App() {
           })
         }
       </section>
+      
+      <div className='pagination flex justify-center'>
+      <button className='pagination_button px-8 py-4 bg-primary mx-0 my-4 transition-shadow' onClick={addPagination}>Load more ...</button>
+      </div>
 
       <Footer/>
     </>
