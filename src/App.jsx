@@ -64,7 +64,7 @@ function App() {
       <Header/>
 
       <section id="hero" className="hero relative h-screen flex flex-col items-center justify-center bg-gradient-to-b from-transparent from-50% to-[#242424]">
-            <video src="./Dune.mp4" loop muted autoPlay playsInline className=' absolute top-0 left-0 w-full h-full -z-10 object-cover object-center '></video>
+            <video preload='auto' src="/Dune.mp4" loop muted autoPlay playsInline className=' absolute top-0 left-0 w-full h-full -z-10 object-cover object-center '></video>
             
             <div className="search animate-fade-in-up flex flex-row items-center justify-between bg-dark rounded-3xl w-3/4 md:w-1/2 px-8 py-4 gap-2 transition-shadow">
               <input onKeyDown={handleKeyDown} type="text" placeholder="Introduzca una película..." className="input text-white outline-none bg-transparent w-full"/>
